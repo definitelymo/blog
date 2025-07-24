@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>internimage | My New Hugo Site</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="版本兼容问题使用CUDA11.8
+PyTorch 版本
+PyTorch 版本过新似乎会导致许多问题，很多库并不兼容 2.1.0，现在改成 2.0.1。
+不能导入前馈网络
+cannot import name &lsquo;FEEDFORWARD_NETWORK&rsquo; from &lsquo;mmcv.cnn.bricks.transformer
+effcient——ffn中修改import处去掉前馈网络，增加registry的导入作为注册表，将basemodule导入改成from mmengine.model.base_module import BaseModule
+mmcv.runner完全消失
+from mmcv.runner import force_fp32
+ModuleNotFoundError: No module named &lsquo;mmcv.runner&rsquo;
+改成from mmengine.model.utils import force_fp32
+使用11.3版本的CUDA
+核心库版本如下：
+
+mmcv-full==1.5.0
+mmsegmentation==0.27.0
+timm==0.6.11
+mmdet==2.28.1
+numpy==1.26.4
+pydantic==1.10.13
+yapf==0.40.1
+
+pip install torch==1.11.0&#43;cu113 torchvision==0.12.0&#43;cu113  -f https://download.pytorch.org/whl/torch_stable.html 
+官方仓库连接
+库报错
+linux版本冲突
+如Scipy等库不同版本对linux依赖不同，使用conda安装即可解决
+opencv
+cv2.error: OpenCV(4.7.0) :-1: error: (-5:Bad argument) in function &lsquo;imdecode&rsquo;
+Overload resolution failed:buf is not a numpy array, neither a scalar">
+    <meta name="generator" content="Hugo 0.148.1">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/posts/first-log/">
+    
+
+    <meta property="og:url" content="http://localhost:1313/posts/first-log/">
+  <meta property="og:site_name" content="My New Hugo Site">
+  <meta property="og:title" content="internimage">
+  <meta property="og:description" content="版本兼容问题使用CUDA11.8 PyTorch 版本 PyTorch 版本过新似乎会导致许多问题，很多库并不兼容 2.1.0，现在改成 2.0.1。
+不能导入前馈网络 cannot import name ‘FEEDFORWARD_NETWORK’ from ‘mmcv.cnn.bricks.transformer effcient——ffn中修改import处去掉前馈网络，增加registry的导入作为注册表，将basemodule导入改成from mmengine.model.base_module import BaseModule
+mmcv.runner完全消失 from mmcv.runner import force_fp32 ModuleNotFoundError: No module named ‘mmcv.runner’ 改成from mmengine.model.utils import force_fp32
+使用11.3版本的CUDA 核心库版本如下： mmcv-full==1.5.0 mmsegmentation==0.27.0 timm==0.6.11 mmdet==2.28.1 numpy==1.26.4 pydantic==1.10.13 yapf==0.40.1 pip install torch==1.11.0&#43;cu113 torchvision==0.12.0&#43;cu113 -f https://download.pytorch.org/whl/torch_stable.html 官方仓库连接
+库报错 linux版本冲突 如Scipy等库不同版本对linux依赖不同，使用conda安装即可解决
+opencv cv2.error: OpenCV(4.7.0) :-1: error: (-5:Bad argument) in function ‘imdecode’ Overload resolution failed:buf is not a numpy array, neither a scalar">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-07-16T20:00:00+08:00">
+    <meta property="article:modified_time" content="2025-07-16T20:00:00+08:00">
+
+  <meta itemprop="name" content="internimage">
+  <meta itemprop="description" content="版本兼容问题使用CUDA11.8 PyTorch 版本 PyTorch 版本过新似乎会导致许多问题，很多库并不兼容 2.1.0，现在改成 2.0.1。
+不能导入前馈网络 cannot import name ‘FEEDFORWARD_NETWORK’ from ‘mmcv.cnn.bricks.transformer effcient——ffn中修改import处去掉前馈网络，增加registry的导入作为注册表，将basemodule导入改成from mmengine.model.base_module import BaseModule
+mmcv.runner完全消失 from mmcv.runner import force_fp32 ModuleNotFoundError: No module named ‘mmcv.runner’ 改成from mmengine.model.utils import force_fp32
+使用11.3版本的CUDA 核心库版本如下： mmcv-full==1.5.0 mmsegmentation==0.27.0 timm==0.6.11 mmdet==2.28.1 numpy==1.26.4 pydantic==1.10.13 yapf==0.40.1 pip install torch==1.11.0&#43;cu113 torchvision==0.12.0&#43;cu113 -f https://download.pytorch.org/whl/torch_stable.html 官方仓库连接
+库报错 linux版本冲突 如Scipy等库不同版本对linux依赖不同，使用conda安装即可解决
+opencv cv2.error: OpenCV(4.7.0) :-1: error: (-5:Bad argument) in function ‘imdecode’ Overload resolution failed:buf is not a numpy array, neither a scalar">
+  <meta itemprop="datePublished" content="2025-07-16T20:00:00+08:00">
+  <meta itemprop="dateModified" content="2025-07-16T20:00:00+08:00">
+  <meta itemprop="wordCount" content="97">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="internimage">
+  <meta name="twitter:description" content="版本兼容问题使用CUDA11.8 PyTorch 版本 PyTorch 版本过新似乎会导致许多问题，很多库并不兼容 2.1.0，现在改成 2.0.1。
+不能导入前馈网络 cannot import name ‘FEEDFORWARD_NETWORK’ from ‘mmcv.cnn.bricks.transformer effcient——ffn中修改import处去掉前馈网络，增加registry的导入作为注册表，将basemodule导入改成from mmengine.model.base_module import BaseModule
+mmcv.runner完全消失 from mmcv.runner import force_fp32 ModuleNotFoundError: No module named ‘mmcv.runner’ 改成from mmengine.model.utils import force_fp32
+使用11.3版本的CUDA 核心库版本如下： mmcv-full==1.5.0 mmsegmentation==0.27.0 timm==0.6.11 mmdet==2.28.1 numpy==1.26.4 pydantic==1.10.13 yapf==0.40.1 pip install torch==1.11.0&#43;cu113 torchvision==0.12.0&#43;cu113 -f https://download.pytorch.org/whl/torch_stable.html 官方仓库连接
+库报错 linux版本冲突 如Scipy等库不同版本对linux依赖不同，使用conda安装即可解决
+opencv cv2.error: OpenCV(4.7.0) :-1: error: (-5:Bad argument) in function ‘imdecode’ Overload resolution failed:buf is not a numpy array, neither a scalar">
+
+	
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        My New Hugo Site
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  
+  <article class="flex-l mw8 center ph3 flex-wrap justify-between">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Posts
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">internimage</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2025-07-16T20:00:00+08:00">July 16, 2025</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h1 id="版本兼容问题使用cuda118">版本兼容问题使用CUDA11.8</h1>
+<h2 id="pytorch-版本">PyTorch 版本</h2>
+<p>PyTorch 版本过新似乎会导致许多问题，很多库并不兼容 2.1.0，现在改成 2.0.1。</p>
+<h2 id="不能导入前馈网络">不能导入前馈网络</h2>
+<p>cannot import name &lsquo;FEEDFORWARD_NETWORK&rsquo; from &lsquo;mmcv.cnn.bricks.transformer
+effcient——ffn中修改import处去掉前馈网络，增加registry的导入作为注册表，将basemodule导入改成from mmengine.model.base_module import BaseModule</p>
+<h2 id="mmcvrunner完全消失">mmcv.runner完全消失</h2>
+<p>from mmcv.runner import force_fp32
+ModuleNotFoundError: No module named &lsquo;mmcv.runner&rsquo;
+改成from mmengine.model.utils import force_fp32</p>
+<h1 id="使用113版本的cuda">使用11.3版本的CUDA</h1>
+<h2 id="核心库版本如下">核心库版本如下：</h2>
+<ul>
+<li>mmcv-full==1.5.0</li>
+<li>mmsegmentation==0.27.0</li>
+<li>timm==0.6.11</li>
+<li>mmdet==2.28.1</li>
+<li>numpy==1.26.4</li>
+<li>pydantic==1.10.13</li>
+<li>yapf==0.40.1</li>
+</ul>
+<p><code>pip install torch==1.11.0+cu113 torchvision==0.12.0+cu113  -f https://download.pytorch.org/whl/torch_stable.html </code>
+<a href="https://github.com/OpenGVLab/InternImage">官方仓库连接</a></p>
+<h2 id="库报错">库报错</h2>
+<h3 id="linux版本冲突">linux版本冲突</h3>
+<p>如Scipy等库不同版本对linux依赖不同，使用conda安装即可解决</p>
+<h3 id="opencv">opencv</h3>
+<p>cv2.error: OpenCV(4.7.0) :-1: error: (-5:Bad argument) in function &lsquo;imdecode&rsquo;
+Overload resolution failed:buf is not a numpy array, neither a scalar</p>
+<p>尝试cv2.cvtColor(img, cv2.COLOR_BGR2RGB, img)修改为img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)，失败
+怀疑是地址重复将dataroot删掉，img_prefix=data_root + &lsquo;val2017/&rsquo;,修改data_root为绝对路径</p>
+<p>导入自定义的导入文件，将pipeline里的load文件修改前面加上My
+问题似乎聚焦在新老版本的数据读取方式上，意思配置文件比较新但整体框架是老的，有许多冲突  现在尝试转换读取方式绕过opencv</p>
+<p>自己写的存在数组转换问题，要先转换成浮点保持精度
+TTA的存在让自己写的转换函数只运行一次，报错会一直存在，要改变TTA结构</p>
+<p>使用AI大概改了20多次pipeline文件，过程全部省略，一直反复出现assertion error，然后AI崩溃放弃了。。。。  他希望从头再来，直接改图片本身，我的评价是他是这个
+numpy版本不止一个，疑似openmim安装的 全部卸载后重新安装并且重装openmim等来保证链接
+opencv的读取不到疑似是opencv版本的问题</p>
+<p>程序在运行train.py的时候卡住了，没有报任何错，在输出初始配置的日志之后就没有输出任何训练日志，尝试用断点寻找原因，进入了六层函数还是没到头<br>
+最后发现是数据集的配置文件错误导致始终在读取而无法进行正确训练，包括annotation以及cofnig里的lass</p>
+<h2 id="数据集">数据集</h2>
+<h3 id="yolo类转coco类">YOLO类转COCO类</h3>
+<p>AI写了个脚本，注意一下文件结构，要注意annotaion的具体配置</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  My New Hugo Site 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
